@@ -1,22 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import FlashList from './FlashList';
+
+const dataFlash = [
+  {front: "This", back: "That"},
+  {front: "Onmyo", back: "Magic"},
+  {front: "Ninja", back: "Dex"},
+  {front: "Odachi", back: "Str"},
+  {front: "Tonfa", back: "Courage"},
+  {front: "Magic", back: "Switch"},
+  {front: "Back", back: "Front"},
+]
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <FlashList list={dataFlash}/>
       </header>
     </div>
   );
