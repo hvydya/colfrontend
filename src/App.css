@@ -36,7 +36,6 @@
 
 #flashText {
   font-size: -webkit-xxx-large;
-  color: #282c34;
 }
 
 #buttonContainer {
@@ -47,7 +46,7 @@
 @media only screen and (min-width: 768px) {
   #flashDiv {
     width: 40vw;
-    height: 50vh;
+    height: 60vh;
   }
 
   #buttonContainer {
