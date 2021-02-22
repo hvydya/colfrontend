@@ -29,16 +29,8 @@ export default class Flash extends React.Component {
 
     render() {
         let { isFront, front, back } = this.state;
-        return <div id="flashDiv" style={flashDivStyle} onClick={this.toggleFlash}>
+        return <div id="flashDiv" onClick={this.toggleFlash}>
             <p id="flashText">{isFront ? front : back}</p>
         </div>
     }
-}
-
-const flashDivStyle = {
-    position: "relative",
-    width: "400px",
-    height: "600px",
-    border: "solid 1px white",
-    userSelect: "none",
 }
