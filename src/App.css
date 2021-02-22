@@ -1,19 +1,5 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,17 +10,16 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#navbar {
+  position: absolute;
+  top: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#cardIndex {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 1%;
 }
 
 #flashDiv {
@@ -44,11 +29,27 @@
   border: solid 1px white;
   border-radius: 2%;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#flashText {
+  font-size: -webkit-xxx-large
+}
+
+#buttonContainer {
+  margin-top: 1%;
+  width: 90vw;
 }
 
 @media only screen and (min-width: 768px) {
   #flashDiv {
     width: 40vw;
     height: 50vh;
+  }
+
+  #buttonContainer {
+    width: 40vw;
   }
 }

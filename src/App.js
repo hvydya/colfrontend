@@ -15,9 +15,12 @@ const dataFlash = [
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div id="navbar">
+        <h1>Collector</h1>
+      </div>
+      <div id="main">
         <FlashList list={dataFlash}/>
-      </header>
+      </div>
     </div>
   );
 }

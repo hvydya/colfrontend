@@ -24,9 +24,15 @@ export default class FlashList extends React.Component {
         let {flashList, currentIndex} = this.state;
         return (
             <Fragment>
-                <Flash cardVal={flashList[currentIndex]} />
-                <button onClick={this.handlePrev}>prev</button>
-                <button onClick={this.handleNext}>next</button>
+                <Flash cardVal={flashList[currentIndex]} index={currentIndex}/>
+                <div id="buttonContainer">
+                    <span>
+                        <button onClick={this.handlePrev}>prev</button>
+                    </span>
+                    <span>
+                        <button onClick={this.handleNext}>next</button>
+                    </span>
+                </div>
             </Fragment>
         );
     }

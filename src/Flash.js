@@ -6,18 +6,20 @@ export default class Flash extends React.Component {
         this.state = {
             front: props.cardVal.front,
             back: props.cardVal.back,
-            isFront: true
+            isFront: true,
+            index: props.index
         };
     }
 
     componentDidUpdate(prevProps) {
         // Typical usage (don't forget to compare props):
 
-        if (this.props.cardVal.front !== prevProps.cardVal.front || this.props.cardVal.back !== prevProps.cardVal.back) {
+        if (this.props.index !== prevProps.index) {
             this.setState({
                 front: this.props.cardVal.front,
                 back: this.props.cardVal.back,
-                isFront: true
+                isFront: true,
+                index: this.props.index
             })
         }
     }
@@ -28,9 +30,21 @@ export default class Flash extends React.Component {
     }
 
     render() {
-        let { isFront, front, back } = this.state;
-        return <div id="flashDiv" onClick={this.toggleFlash}>
+        let { isFront, front, back, index } = this.state;
+        let style = isFront ? frontStyle : backStyle
+        return <div id="flashDiv" style={ style } onClick={this.toggleFlash}>
             <p id="flashText">{isFront ? front : back}</p>
+            <div id="cardIndex">{index}</div>
         </div>
     }
+}
+
+const frontStyle = {
+    backgroundColor: "white",
+    color: "#282c34",
+}
+
+const backStyle = {
+    backgroundColor: "#282c34",
+    color: "white"
 }
