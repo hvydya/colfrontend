@@ -22,15 +22,23 @@ export default class Flash extends React.Component {
         }
     }
 
-    toggleFlash = () => {
-        this.setState({isFront: !this.state.isFront})
+    toggleFlash = (e) => {
+        e.preventDefault();
+        this.setState({ isFront: !this.state.isFront });
     }
 
     render() {
         let { isFront, front, back } = this.state;
-        return <div>
-            <p>{isFront ? front : back}</p>
-            <button onClick={this.toggleFlash}>Rotate</button>
+        return <div id="flashDiv" style={flashDivStyle} onClick={this.toggleFlash}>
+            <p id="flashText">{isFront ? front : back}</p>
         </div>
     }
+}
+
+const flashDivStyle = {
+    position: "relative",
+    width: "400px",
+    height: "600px",
+    border: "solid 1px white",
+    userSelect: "none",
 }
