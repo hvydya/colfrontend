@@ -35,7 +35,8 @@
 }
 
 #flashText {
-  font-size: -webkit-xxx-large
+  font-size: -webkit-xxx-large;
+  color: #282c34;
 }
 
 #buttonContainer {
