@@ -12,8 +12,6 @@ export default class Flash extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // Typical usage (don't forget to compare props):
-
         if (this.props.index !== prevProps.index) {
             this.setState({
                 front: this.props.cardVal.front,
@@ -34,7 +32,7 @@ export default class Flash extends React.Component {
         let style = isFront ? frontStyle : backStyle
         return <div id="flashDiv" style={ style } onClick={this.toggleFlash}>
             <p id="flashText">{isFront ? front : back}</p>
-            <div id="cardIndex">{index}</div>
+            <div id="cardIndex">{index + 1}</div>
         </div>
     }
 }

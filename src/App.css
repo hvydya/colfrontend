@@ -10,9 +10,17 @@
   color: white;
 }
 
-#navbar {
-  position: absolute;
-  top: 0;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #282c34;
 }
 
 #cardIndex {
@@ -52,4 +60,30 @@
   #buttonContainer {
     width: 40vw;
   }
+}
+
+#navTitle {
+  font-size: 5vh;
+}
+
+#addNewCollection {
+  top: 0;
+  position: absolute;
+  right: 0;
+}
+
+#titleLogo {
+  margin: 2.5vh;
+  align-self: right;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  padding-right: 2vw;
+}
+
+.navLinks a {
+  margin: 0 1vh;
 }
