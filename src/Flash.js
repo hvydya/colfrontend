@@ -28,21 +28,18 @@ export default class Flash extends React.Component {
     }
 
     render() {
-        let { isFront, front, back, index } = this.state;
-        let style = isFront ? frontStyle : backStyle
-        return <div id="flashDiv" style={ style } onClick={this.toggleFlash}>
-            <p id="flashText">{isFront ? front : back}</p>
-            <div id="cardIndex">{index + 1}</div>
+        let { front, back, index } = this.state;
+        // let style = isFront ? frontStyle : backStyle
+        return <div className="flip-card">
+            <div className="flip-card-inner">
+                <div className="flip-card-front">
+                    <div id="front-text">{front}</div>
+                    <div id="cardIndex">{index + 1}</div>
+                </div>
+                <div className="flip-card-back">
+                    <div id="back-text">{back}</div>
+                </div>
+            </div>
         </div>
     }
-}
-
-const frontStyle = {
-    backgroundColor: "white",
-    color: "#282c34",
-}
-
-const backStyle = {
-    backgroundColor: "#282c34",
-    color: "white"
 }

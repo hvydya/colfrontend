@@ -16,6 +16,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  height: 8vh;
+  user-select: none;
 }
 
 .navbar a {
@@ -27,7 +29,11 @@
   position: absolute;
   top: 0;
   right: 0;
+  padding-top: 0.8%;
   padding-right: 1%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  font-size: 1rem;
 }
 
 #flashDiv {
@@ -42,24 +48,14 @@
   align-items: center;
 }
 
-#flashText {
+#front-text {
   font-size: -webkit-xxx-large;
 }
 
 #buttonContainer {
   margin-top: 1%;
   width: 90vw;
-}
-
-@media only screen and (min-width: 768px) {
-  #flashDiv {
-    width: 40vw;
-    height: 60vh;
-  }
-
-  #buttonContainer {
-    width: 40vw;
-  }
+  user-select: none;
 }
 
 #navTitle {
@@ -75,6 +71,9 @@
 #titleLogo {
   margin: 2.5vh;
   align-self: right;
+  font-size: 2.5rem;
+  margin: 0 inherit;
+  padding: 1vw;
 }
 
 .navLinks {
@@ -86,4 +85,87 @@
 
 .navLinks a {
   margin: 0 1vh;
+}
+
+
+.flip-card {
+  user-select: none;
+  position: relative;
+  width: 90vw;
+  height: 50vh;
+  /* border: solid 1px white; */
+  /* border-radius: 2%; */
+  user-select: none;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+#back-text {
+  padding: 2vh;
+}
+
+@media only screen and (min-width: 768px) {
+  #flashDiv {
+    width: 40vw;
+    height: 60vh;
+  }
+
+  #buttonContainer {
+    width: 40vw;
+  }
+
+  .flip-card {
+    width: 40vw;
+    height: 60vh;
+  }
+
+  #back-text {
+    padding: 2vw;
+  }
+}
+
+#col-list-item a {
+  color: white;
+  text-decoration: none;
 }
