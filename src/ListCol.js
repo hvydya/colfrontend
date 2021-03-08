@@ -3,7 +3,6 @@ import React, { Fragment } from "react";
 export default class ListCol extends React.Component {
     constructor(props) {
         super(props);
-        console.log("entered");
         this.state = {
             ready: false,
             list: [1,2,3]
@@ -12,15 +11,15 @@ export default class ListCol extends React.Component {
 
     componentDidMount() {
         // get list
-        setTimeout(() => {
-            this.setState({ ready: true })
-        }, 3000);
+        fetch("http://192.168.1.10/b/api/c").then(res => res.json().then(res => {
+            this.setState({ list: res, ready: true });
+        })).catch(err => console.error(err));
     }
 
     render() {
         let { ready, list } = this.state;
         return ready ? <Fragment>
-            {list.map((el, i) => ListElement({ key: i, name: "list", url: `/col/${i}`}))}
+            {list.map((el, i) => ListElement({ key: i, name: el.name, url: `/col/${el.id}`}))}
         </Fragment> : <h2>Loading....</h2>
     }
 }

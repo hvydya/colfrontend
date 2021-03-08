@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
 import Flash from './Flash';
 
-const dataFlash = [
-  {front: "This", back: "It need to add to the div and the :hover , :active , :focus for the other mobile browsers. I am a CSS noob but I have noticed that hover will work for touch screens so long as it's a hoverable element: image, link, button"},
-  {front: "Onmyo", back: "Magic"},
-  {front: "Ninja", back: "Dex"},
-  {front: "Odachi", back: "Str"},
-  {front: "Tonfa", back: "Courage"},
-  {front: "Magic", back: "Switch"},
-  {front: "Back", back: "Front"},
-]
+// const dataFlash = [
+//   {front: "This", back: "It need to add to the div and the :hover , :active , :focus for the other mobile browsers. I am a CSS noob but I have noticed that hover will work for touch screens so long as it's a hoverable element: image, link, button"},
+//   {front: "Onmyo", back: "Magic"},
+//   {front: "Ninja", back: "Dex"},
+//   {front: "Odachi", back: "Str"},
+//   {front: "Tonfa", back: "Courage"},
+//   {front: "Magic", back: "Switch"},
+//   {front: "Back", back: "Front"},
+// ]
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -43,14 +43,12 @@ export default class FlashList extends React.Component {
     }
 
     componentDidMount() {
-        // Simulate n/w call
-        setTimeout(() => {
-            let s = shuffle(dataFlash);
-            this.setState({
-                flashList: s,
-                ready: true
-            })
-        }, 5000);
+        fetch(`http://192.168.1.10/b/api/c/${this.state.id}`).then(res => res.json().then(res => {
+            shuffle(res);
+            this.setState({ flashList: res, ready: true });
+        })).catch(err => {
+            console.error(err);
+        });
         document.addEventListener("keyup", this.handleKeyUp)
     }
 
