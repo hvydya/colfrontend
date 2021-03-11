@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import ListCol from './ListCol';
+import EditCollection from './EditColllection';
 
 export default function Navbar() {
     return (
@@ -21,6 +22,9 @@ export default function Navbar() {
                             <div>
                                 <Link to="/l">List</Link>
                             </div>
+                            <div>
+                                <Link to="/e">Edit</Link>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -29,6 +33,7 @@ export default function Navbar() {
                 <Switch>
                     <Route path="/col/:colId" component={FlashList} />
                     <Route path="/l" component={ListCol} />
+                    <Route path="/e" component={EditCollection} />
                     {/* <Route path="/add" component={Add} /> */}
                     <Route path="/col">
                         <h3>Please select a col.</h3>
